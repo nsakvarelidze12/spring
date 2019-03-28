@@ -1,4 +1,4 @@
-package pak;
+package pak.interceptors;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -7,7 +7,7 @@ import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.stereotype.Component;
 
 //@Component
-public class PostProcBean implements BeanPostProcessor {
+public class BeanPostProc implements BeanPostProcessor {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
