@@ -6,7 +6,6 @@ import org.springframework.context.annotation.*;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import pak.beans.MyBean;
-import pak.beans.MyBean2;
 import pak.interceptors.MyAspect;
 import pak.interceptors.BeanPostProc;
 import pak.interceptors.MyEventHandler;

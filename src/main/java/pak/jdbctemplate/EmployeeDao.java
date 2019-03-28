@@ -16,8 +16,13 @@ import java.util.List;
 @Component
 public class EmployeeDao {
 
-    @Autowired
     private JdbcTemplate jdbcTemplate;
+
+    // As of Spring 4.3, classes with a single constructor can omit the @Autowired annotation
+    @Autowired
+    public EmployeeDao(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
 
     public int saveEmployee(final Employee e) {
         String query = "insert into employee values (?, ?, ?)";
