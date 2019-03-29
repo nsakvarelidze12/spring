@@ -8,20 +8,28 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import pak.beans.MyBean;
-import pak.beans.MyBean3;
+import pak.aop.MyBean;
+import pak.aop.MyBean3;
 
 @Configuration
-@ComponentScan(basePackages = {"pak.beans", "pak.interceptors", "pak.jdbctemplate"})
+@ComponentScan(basePackages = {"pak.aop", "pak.jdbctemplate"})
 public class MyConfig {
 
-    @Bean(initMethod = "init")
+    @Bean(initMethod = "init", destroyMethod = "destroy")
     @Scope(value = ConfigurableBeanFactory.SCOPE_SINGLETON)
     //@Lazy
     public MyBean myBean() {
         MyBean mb = new MyBean();
-        mb.setOtherBean(new MyBean3());
+        //not DI
+        //mb.setOtherBean(new MyBean3());
+        mb.setOtherBean(myBean3());
         return mb;
+    }
+
+    @Bean
+    @Scope(value = ConfigurableBeanFactory.SCOPE_SINGLETON)
+    public MyBean3 myBean3() {
+        return new MyBean3();
     }
 
     @Bean
@@ -43,15 +51,5 @@ public class MyConfig {
     public JdbcTemplate jdbcTemplate() {
         return new JdbcTemplate(driverManagerDataSource());
     }
-
-//    @Bean
-//    public BeanPostProc beanPostProc() {
-//        return new BeanPostProc();
-//    }
-
-//    @Bean
-//    public MyEventHandler myEventHandler() {
-//        return new MyEventHandler();
-//    }
 
 }

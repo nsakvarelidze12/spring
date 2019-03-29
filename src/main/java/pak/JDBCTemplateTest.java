@@ -23,7 +23,7 @@ public class JDBCTemplateTest {
 
         EmployeeDao ed2 = ctx.getBean(EmployeeDao.class);
         if (ed == ed2) {
-            logger.info("same");
+            logger.info("reference same");
         } else {
             logger.info("not same");
         }

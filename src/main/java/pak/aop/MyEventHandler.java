@@ -1,11 +1,10 @@
-package pak.interceptors;
+package pak.aop;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextStartedEvent;
 import org.springframework.context.event.ContextStoppedEvent;
-import org.springframework.stereotype.Component;
 
 //@Component
 public class MyEventHandler implements ApplicationListener<ContextStartedEvent> {

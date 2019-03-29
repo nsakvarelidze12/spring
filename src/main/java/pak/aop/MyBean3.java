@@ -1,11 +1,9 @@
-package pak.beans;
+package pak.aop;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-@Component
-//@Scope(value = ConfigurableBeanFactory.SCOPE_SINGLETON)
 public class MyBean3 {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -13,6 +11,10 @@ public class MyBean3 {
 
     public void printName() {
         logger.info("{} {}", name, this.hashCode());
+    }
+
+    public String getName() {
+        return name;
     }
 
 }
