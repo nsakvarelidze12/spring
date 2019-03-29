@@ -1,11 +1,12 @@
 package pak.config;
 
 import org.springframework.aop.aspectj.annotation.AnnotationAwareAspectJAutoProxyCreator;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.*;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
+import org.springframework.core.env.Environment;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import pak.aop.MyBean;
@@ -13,6 +14,7 @@ import pak.aop.MyBean3;
 
 @Configuration
 @ComponentScan(basePackages = {"pak.aop", "pak.jdbctemplate"})
+@PropertySource("classpath:app.config")
 public class MyConfig {
 
     @Bean(initMethod = "init", destroyMethod = "destroy")
@@ -37,13 +39,30 @@ public class MyConfig {
         return new AnnotationAwareAspectJAutoProxyCreator();
     }
 
+    @Value("${mysql.url:defaultValueGoesHere}")
+    String url;
+    @Value("${mysql.user}")
+    String user;
+    //@Value("${mysql.pass}")
+    //String pass;
+
+    @Autowired
+    private Environment env;
+
+    //register PropertySourcesPlaceholderConfigurer
+    //in order to resolve ${...} placeholders
     @Bean
-    public DriverManagerDataSource driverManagerDataSource() {
+    public static PropertySourcesPlaceholderConfigurer propertyConfigInDev() {
+        return new PropertySourcesPlaceholderConfigurer();
+    }
+
+    @Bean
+    public DriverManagerDataSource driverManagerDataSource(/*@Value("${mysql.user}") String user*/) {
         DriverManagerDataSource ds = new DriverManagerDataSource();
         //ds.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        ds.setUrl("jdbc:mysql://127.0.0.1:3306/mydb?useUnicode=true&characterEncoding=utf-8&useSSL=false");
-        ds.setUsername("root");
-        ds.setPassword("123456");
+        ds.setUrl(url);
+        ds.setUsername(user);
+        ds.setPassword(env.getProperty("mysql.pass"));
         return ds;
     }
 
