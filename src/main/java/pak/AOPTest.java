@@ -4,6 +4,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import pak.beans.MyBean;
+import pak.beans.MyBean2;
+import pak.beans.MyBean3;
 import pak.config.MyConfig;
 
 public class AOPTest {
@@ -22,8 +24,16 @@ public class AOPTest {
 
 
         MyBean mb = ctx.getBean(MyBean.class);
-        logger.info(mb.getName());
-        mb.testMyBean2();
+        mb.printName();
+        mb.callOtherBean();
+        mb.getName();
+
+        MyBean2 mb2 = ctx.getBean(MyBean2.class);
+        mb2.printName();
+        mb2.callOtherBean();
+
+        MyBean3 mb3 = ctx.getBean(MyBean3.class);
+        mb3.printName();
 
         //ctx.stop();
     }

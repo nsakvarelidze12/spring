@@ -20,6 +20,13 @@ public class JDBCTemplateTest {
         for (Employee e : ed.queryEmployee()) {
             logger.info("{} {} {}", e.getId(), e.getName(), e.getSalary());
         }
+
+        EmployeeDao ed2 = ctx.getBean(EmployeeDao.class);
+        if (ed == ed2) {
+            logger.info("same");
+        } else {
+            logger.info("not same");
+        }
     }
 
 }

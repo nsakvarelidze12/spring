@@ -3,20 +3,15 @@ package pak.beans;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
-@Component
 public class MyBean {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
-
-    private String name;
-
-    @Autowired
-    private MyBean2 myBean2;
+    private String name = "my bean";
+    private MyBean3 myBean3;
 
     @PostConstruct
     public void init() {
@@ -29,16 +24,20 @@ public class MyBean {
         logger.info("destroy");
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void printName() {
+        logger.info("{} {}", name, this.hashCode());
     }
 
     public String getName() {
         return name;
     }
 
-    public void testMyBean2() {
-        myBean2.welcomeMessage();
+    public void setOtherBean(MyBean3 myBean3) {
+        this.myBean3 = myBean3;
+    }
+
+    public void callOtherBean() {
+        myBean3.printName();
     }
 
 }

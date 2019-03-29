@@ -12,7 +12,7 @@ public class MyAspect {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    @Pointcut("execution(* pak.beans.MyBean.test*(..))")
+    @Pointcut("execution(* pak.beans.MyBean.print*(..))")
     public void myPK() {
     }
 

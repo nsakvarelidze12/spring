@@ -2,30 +2,26 @@ package pak.config;
 
 import org.springframework.aop.aspectj.annotation.AnnotationAwareAspectJAutoProxyCreator;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
-import org.springframework.context.annotation.*;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import pak.beans.MyBean;
-import pak.interceptors.MyAspect;
-import pak.interceptors.BeanPostProc;
-import pak.interceptors.MyEventHandler;
+import pak.beans.MyBean3;
 
 @Configuration
 @ComponentScan(basePackages = {"pak.beans", "pak.interceptors", "pak.jdbctemplate"})
 public class MyConfig {
 
     @Bean(initMethod = "init")
-    @Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+    @Scope(value = ConfigurableBeanFactory.SCOPE_SINGLETON)
     //@Lazy
     public MyBean myBean() {
         MyBean mb = new MyBean();
-        mb.setName("hello world");
+        mb.setOtherBean(new MyBean3());
         return mb;
-    }
-
-    @Bean
-    public MyAspect myAspect() {
-        return new MyAspect();
     }
 
     @Bean
@@ -34,7 +30,7 @@ public class MyConfig {
     }
 
     @Bean
-    public DriverManagerDataSource DriverManagerDataSource() {
+    public DriverManagerDataSource driverManagerDataSource() {
         DriverManagerDataSource ds = new DriverManagerDataSource();
         //ds.setDriverClassName("com.mysql.cj.jdbc.Driver");
         ds.setUrl("jdbc:mysql://127.0.0.1:3306/mydb?useUnicode=true&characterEncoding=utf-8&useSSL=false");
@@ -44,12 +40,12 @@ public class MyConfig {
     }
 
     @Bean
-    public JdbcTemplate JdbcTemplate() {
-        return new JdbcTemplate(DriverManagerDataSource());
+    public JdbcTemplate jdbcTemplate() {
+        return new JdbcTemplate(driverManagerDataSource());
     }
 
 //    @Bean
-//    public BeanPostProc postProcBean() {
+//    public BeanPostProc beanPostProc() {
 //        return new BeanPostProc();
 //    }
 

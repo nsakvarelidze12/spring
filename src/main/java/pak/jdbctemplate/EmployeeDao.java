@@ -1,6 +1,8 @@
 package pak.jdbctemplate;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.context.annotation.Scope;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementSetter;
@@ -14,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
+@Scope(value = ConfigurableBeanFactory.SCOPE_SINGLETON)
 public class EmployeeDao {
 
     private JdbcTemplate jdbcTemplate;
