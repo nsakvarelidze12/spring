@@ -21,12 +21,12 @@ public class JDBCTemplateTest {
             logger.info("{} {} {}", e.getId(), e.getName(), e.getSalary());
         }
 
-        EmployeeDao ed2 = ctx.getBean(EmployeeDao.class);
-        if (ed == ed2) {
-            logger.info("reference same");
-        } else {
-            logger.info("not same");
-        }
+//        EmployeeDao ed2 = ctx.getBean(EmployeeDao.class);
+//        if (ed == ed2) {
+//            logger.info("reference same");
+//        } else {
+//            logger.info("not same");
+//        }
     }
 
 }

@@ -8,6 +8,7 @@ import org.springframework.context.annotation.*;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.core.env.Environment;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import pak.aop.MyBean;
 import pak.aop.MyBean3;
@@ -69,6 +70,11 @@ public class MyConfig {
     @Bean
     public JdbcTemplate jdbcTemplate() {
         return new JdbcTemplate(driverManagerDataSource());
+    }
+
+    @Bean
+    public NamedParameterJdbcTemplate namedParameterJdbcTemplate() {
+        return new NamedParameterJdbcTemplate(driverManagerDataSource());
     }
 
 }
