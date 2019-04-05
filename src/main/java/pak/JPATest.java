@@ -38,7 +38,7 @@ public class JPATest {
 
         //em.close();
         //emf.close();
-        logger.info("DONE");
+        logger.info("DONE.");
 
     }
 
