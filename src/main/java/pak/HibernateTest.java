@@ -7,29 +7,42 @@ import org.hibernate.boot.Metadata;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import pak.hibernate.Employee2;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import pak.hibernate.Emp;
+import pak.hibernate.RegEmp;
 
 public class HibernateTest {
 
+    private static Logger logger = LoggerFactory.getLogger(Test.class/*"customLogger"*/);
+
     public static void main(String[] args) {
 
-        StandardServiceRegistry ssr = new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build();
-        Metadata meta = new MetadataSources(ssr).getMetadataBuilder().build();
+        // !!! USE HIBERNATE JPA IMPLEMENTATION, NOT THIS !!!
 
+/*        StandardServiceRegistry ssr = new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build();
+        Metadata meta = new MetadataSources(ssr).getMetadataBuilder().build();
         SessionFactory factory = meta.getSessionFactoryBuilder().build();
         Session session = factory.openSession();
         Transaction t = session.beginTransaction();
 
-        Employee2 e1=new Employee2();
-        //e1.setId(101);
-        e1.setFirstName("Gaurav");
-        e1.setLastName("Chawla");
+//        Emp e1 = new Emp();
+//        e1.setName("n1");
+//        session.save(e1);
 
-        session.save(e1);
-        t.commit();
-        System.out.println("successfully saved");
-        factory.close();
+//        RegEmp remp1 = new RegEmp();
+//        remp1.setName("n2");
+//        remp1.setSalary(5000.15f);
+//        session.save(remp1);
+
+//        t.commit();
+
+        RegEmp regEmp = session.find(RegEmp.class, 2);
+        logger.info("{} {} {}", regEmp.getId(), regEmp.getName(), regEmp.getSalary());
+
         session.close();
+        factory.close();
+        logger.info("DONE");*/
 
     }
 

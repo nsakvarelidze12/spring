@@ -13,8 +13,11 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import pak.aop.MyBean;
 import pak.aop.MyBean3;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
 @Configuration
-@ComponentScan(basePackages = {"pak.aop", "pak.jdbctemplate"})
+@ComponentScan(basePackages = {"pak.aop", "pak.jdbctemplate", "pak.hibernate"})
 @PropertySource("classpath:app.config")
 public class MyConfig {
 
@@ -76,5 +79,9 @@ public class MyConfig {
     public NamedParameterJdbcTemplate namedParameterJdbcTemplate() {
         return new NamedParameterJdbcTemplate(driverManagerDataSource());
     }
+
+    // container managed
+//    @PersistenceContext(unitName = "myUnit")
+//    private EntityManager em;
 
 }

@@ -10,13 +10,14 @@
 
 create database mydb;
 
-use mydb;
-
-show tables;
-
 create table employee
 (
   id int,
   name varchar(100),
   salary float
 );
+
+??? collection mapping
+
+??? container managed em
+https://www.baeldung.com/the-persistence-layer-with-spring-and-jpa
