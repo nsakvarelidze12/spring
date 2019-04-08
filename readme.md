@@ -17,7 +17,10 @@ create table employee
   salary float
 );
 
-??? collection mapping
+https://en.wikibooks.org/wiki/Java_Persistence/Transactions
 
-??? container managed em
+#container managed
 https://www.baeldung.com/the-persistence-layer-with-spring-and-jpa
+http://www.makble.com/jpa-configuration-in-spring-with-annotation-example
+
+??? collection mapping

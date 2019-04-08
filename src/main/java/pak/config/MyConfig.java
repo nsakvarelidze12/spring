@@ -7,18 +7,24 @@ import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.*;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.core.env.Environment;
+import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.orm.jpa.JpaTransactionManager;
+import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 import pak.aop.MyBean;
 import pak.aop.MyBean3;
-
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import javax.persistence.EntityManagerFactory;
 
 @Configuration
 @ComponentScan(basePackages = {"pak.aop", "pak.jdbctemplate", "pak.hibernate"})
 @PropertySource("classpath:app.config")
+@EnableTransactionManagement
+//@EnableJpaRepositories(basePackages = { "org.baeldung.persistence.dao", "org.baeldung.persistence.repository" })
+//@EnableAspectJAutoProxy(proxyTargetClass = true)
 public class MyConfig {
 
     @Bean(initMethod = "init", destroyMethod = "destroy")
@@ -80,8 +86,32 @@ public class MyConfig {
         return new NamedParameterJdbcTemplate(driverManagerDataSource());
     }
 
-    // container managed
-//    @PersistenceContext(unitName = "myUnit")
-//    private EntityManager em;
+    @Bean
+    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
+        LocalContainerEntityManagerFactoryBean emf
+                = new LocalContainerEntityManagerFactoryBean();
+
+//        emf.setDataSource(dataSource());
+//        emf.setPackagesToScan(new String[] { "org.baeldung.persistence.model" });
+//        emf.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
+//        emf.setJpaProperties(additionalProperties());
+
+        emf.setPersistenceUnitName("myUnit");
+
+        return emf;
+    }
+
+    @Bean
+    public PlatformTransactionManager transactionManager(EntityManagerFactory emf) {
+        JpaTransactionManager transactionManager = new JpaTransactionManager();
+        transactionManager.setEntityManagerFactory(emf);
+
+        return transactionManager;
+    }
+
+    @Bean
+    public PersistenceExceptionTranslationPostProcessor exceptionTranslation(){
+        return new PersistenceExceptionTranslationPostProcessor();
+    }
 
 }
