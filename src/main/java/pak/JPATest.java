@@ -4,8 +4,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import pak.config.MyConfig;
-import pak.hibernate.EmpDao;
+import pak.config.MyConfig2;
 import pak.hibernate.RegEmp;
+import pak.hibernate.RegEmpService;
 
 public class JPATest {
 
@@ -35,13 +36,16 @@ public class JPATest {
 //        emf.close();
 
         // container managed
-        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(MyConfig.class);
-        EmpDao empDao = ctx.getBean(EmpDao.class);
+        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(MyConfig2.class);
+        for (String name : ctx.getBeanDefinitionNames()) {
+            logger.info(name);
+        }
+        RegEmpService regEmpService = ctx.getBean(RegEmpService.class);
         RegEmp re = new RegEmp();
         re.setName("n3");
         re.setSalary(5000.15F);
-        empDao.saveRegEmp(re);
-        empDao.findRegEmpById(3L);
+        regEmpService.save(re);
+        regEmpService.findById(RegEmp.class, 302);
 
         logger.info("DONE");
 

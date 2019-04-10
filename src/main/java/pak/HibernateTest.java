@@ -9,7 +9,6 @@ import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import pak.hibernate.Emp;
 import pak.hibernate.RegEmp;
 
 public class HibernateTest {
@@ -20,7 +19,7 @@ public class HibernateTest {
 
         // !!! USE HIBERNATE JPA IMPLEMENTATION, NOT THIS !!!
 
-/*        StandardServiceRegistry ssr = new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build();
+/*        StandardServiceRegistry ssr = new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml.bak").build();
         Metadata meta = new MetadataSources(ssr).getMetadataBuilder().build();
         SessionFactory factory = meta.getSessionFactoryBuilder().build();
         Session session = factory.openSession();
