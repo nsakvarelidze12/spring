@@ -1,4 +1,6 @@
-package pak.hibernate;
+package pak.persistence.dao;
+
+import pak.persistence.model.RegEmp;
 
 public interface RegEmpDaoInt {
 

@@ -9,7 +9,8 @@ import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import pak.hibernate.RegEmp;
+import pak.persistence.model.Emp;
+import pak.persistence.model.RegEmp;
 
 public class HibernateTest {
 
@@ -28,12 +29,12 @@ public class HibernateTest {
 //        Emp e1 = new Emp();
 //        e1.setName("n1");
 //        session.save(e1);
-
+//
 //        RegEmp remp1 = new RegEmp();
 //        remp1.setName("n2");
 //        remp1.setSalary(5000.15f);
 //        session.save(remp1);
-
+//
 //        t.commit();
 
         RegEmp regEmp = session.find(RegEmp.class, 2);

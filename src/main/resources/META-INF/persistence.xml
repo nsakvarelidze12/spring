@@ -12,8 +12,8 @@
     <!--transaction-type="JTA"-->
     <persistence-unit name="myUnit">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <class>pak.hibernate.Emp</class>
-        <class>pak.hibernate.RegEmp</class>
+        <class>pak.persistence.model.Emp</class>
+        <class>pak.persistence.model.RegEmp</class>
         <properties>
             <property name="hibernate.hbm2ddl.auto" value="update"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL57Dialect"/>

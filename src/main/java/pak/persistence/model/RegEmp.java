@@ -1,4 +1,6 @@
-package pak.hibernate;
+package pak.persistence.model;
+
+import pak.persistence.model.Emp;
 
 import javax.persistence.*;
 

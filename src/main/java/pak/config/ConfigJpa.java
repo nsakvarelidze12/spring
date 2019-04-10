@@ -12,9 +12,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import javax.persistence.EntityManagerFactory;
 
 @Configuration
-@ComponentScan(basePackages = {"pak.hibernate"})
+@ComponentScan(basePackages = {"pak.persistence"})
 @EnableTransactionManagement
-public class MyConfig2 {
+public class ConfigJpa {
 
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {

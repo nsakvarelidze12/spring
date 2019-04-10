@@ -3,10 +3,9 @@ package pak;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import pak.config.MyConfig;
-import pak.config.MyConfig2;
-import pak.hibernate.RegEmp;
-import pak.hibernate.RegEmpService;
+import pak.config.ConfigJpa;
+import pak.persistence.model.RegEmp;
+import pak.persistence.service.RegEmpService;
 
 public class JPATest {
 
@@ -36,7 +35,7 @@ public class JPATest {
 //        emf.close();
 
         // container managed
-        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(MyConfig2.class);
+        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(ConfigJpa.class);
         for (String name : ctx.getBeanDefinitionNames()) {
             logger.info(name);
         }

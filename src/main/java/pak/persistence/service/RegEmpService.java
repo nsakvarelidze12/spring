@@ -1,4 +1,4 @@
-package pak.hibernate;
+package pak.persistence.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,6 +8,8 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+import pak.persistence.dao.RegEmpDaoInt;
+import pak.persistence.model.RegEmp;
 
 @Service
 @Scope(value = ConfigurableBeanFactory.SCOPE_SINGLETON)

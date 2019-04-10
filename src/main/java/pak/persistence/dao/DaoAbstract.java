@@ -1,4 +1,4 @@
-package pak.hibernate;
+package pak.persistence.dao;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

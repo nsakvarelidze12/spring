@@ -6,14 +6,14 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import pak.aop.MyBean;
 import pak.aop.MyBean2;
 import pak.aop.MyBean3;
-import pak.config.MyConfig;
+import pak.config.ConfigAop;
 
 public class AOPTest {
 
     private static Logger logger = LoggerFactory.getLogger(AOPTest.class/*"customLogger"*/);
 
     public static void main(String[] args) {
-        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(MyConfig.class);
+        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(ConfigAop.class);
         //ctx.start();
 
         logger.info("**************");

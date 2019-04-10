@@ -13,7 +13,7 @@
         <!--<property name="hibernate.current_session_context_class">thread</property>-->
         <!--<property name="hibernate.show_sql">true</property>-->
 
-        <mapping class="pak.hibernate.Emp"/>
-        <mapping class="pak.hibernate.RegEmp"/>
+        <mapping class="pak.persistence.model.Emp"/>
+        <mapping class="pak.persistence.model.RegEmp"/>
     </session-factory>
 </hibernate-configuration>
