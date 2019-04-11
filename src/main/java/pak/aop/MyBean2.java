@@ -3,6 +3,7 @@ package pak.aop;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
@@ -10,12 +11,15 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
-@Component
+@Component("myBean2")
 @Scope(value = ConfigurableBeanFactory.SCOPE_SINGLETON)
 public class MyBean2 {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
-    private String name = "my bean 2";
+
+    @Value("my bean 2")
+    private String name;
+
     private MyBean3 myBean3;
 
     @PostConstruct

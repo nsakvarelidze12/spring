@@ -6,7 +6,9 @@ import org.slf4j.LoggerFactory;
 public class MyBean {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
+
     private String name = "my bean";
+
     private MyBean3 myBean3;
 
     public void init() {

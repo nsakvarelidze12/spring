@@ -1,15 +1,12 @@
-### read me
+### `links`  
 [lint to tutorial](https://www.javatpoint.com/spring-tutorial)  
-**bold**  
-*italic*
-* item1
-* item2
-> Blockquotes
+[JPA container managed](https://www.baeldung.com/the-persistence-layer-with-spring-and-jpa)  
+[JPA container managed 2](http://www.makble.com/jpa-configuration-in-spring-with-annotation-example)  
+[JPA Transactions](https://en.wikibooks.org/wiki/Java_Persistence/Transactions)  
+[spel](https://dzone.com/articles/learn-spring-expression-language-with-examples)  
 
-
-
-create database mydb;
-
+#### `DB Objects for jdbcTemplate`  
+create database mydb;  
 create table employee
 (
   id int,
@@ -17,10 +14,16 @@ create table employee
   salary float
 );
 
-https://en.wikibooks.org/wiki/Java_Persistence/Transactions
+### `questions`  
+jpa collection mapping  
+jpa query lang  
+remoting  
+MVC  
+WS  
 
-#container managed
-https://www.baeldung.com/the-persistence-layer-with-spring-and-jpa
-http://www.makble.com/jpa-configuration-in-spring-with-annotation-example
-
-??? collection mapping
+### `markdown examples`
+**bold**  
+*italic*  
+* item
+* item2
+> Blockquotes
