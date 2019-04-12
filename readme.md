@@ -4,8 +4,10 @@
 [JPA container managed 2](http://www.makble.com/jpa-configuration-in-spring-with-annotation-example)  
 [JPA Transactions](https://en.wikibooks.org/wiki/Java_Persistence/Transactions)  
 [SPEL](https://dzone.com/articles/learn-spring-expression-language-with-examples)  
+[MVC](https://www.journaldev.com/14476/spring-mvc-example)  
+[MVC java based](https://www.dev2qa.com/spring-mvc-full-java-based-configuration-example/)  
 [MVC](https://www.baeldung.com/spring-mvc-tutorial)  
-[MVC 2](https://crunchify.com/simplest-spring-mvc-hello-world-example-tutorial-spring-model-view-controller-tips/)
+[MVC](https://crunchify.com/simplest-spring-mvc-hello-world-example-tutorial-spring-model-view-controller-tips/)
 
 #### `DB Objects for jdbcTemplate`  
 create database mydb;  
@@ -22,6 +24,8 @@ jpa query lang
 remoting  
 WS  
 MVC  
+spring security  
+spring boot  
 
 ### `markdown examples`
 **bold**  
