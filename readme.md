@@ -3,7 +3,8 @@
 [JPA container managed](https://www.baeldung.com/the-persistence-layer-with-spring-and-jpa)  
 [JPA container managed 2](http://www.makble.com/jpa-configuration-in-spring-with-annotation-example)  
 [JPA Transactions](https://en.wikibooks.org/wiki/Java_Persistence/Transactions)  
-[spel](https://dzone.com/articles/learn-spring-expression-language-with-examples)  
+[SPEL](https://dzone.com/articles/learn-spring-expression-language-with-examples)  
+[MVC](https://www.baeldung.com/spring-mvc-tutorial)  
 
 #### `DB Objects for jdbcTemplate`  
 create database mydb;  
