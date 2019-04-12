@@ -5,6 +5,7 @@
 [JPA Transactions](https://en.wikibooks.org/wiki/Java_Persistence/Transactions)  
 [SPEL](https://dzone.com/articles/learn-spring-expression-language-with-examples)  
 [MVC](https://www.baeldung.com/spring-mvc-tutorial)  
+[MVC 2](https://crunchify.com/simplest-spring-mvc-hello-world-example-tutorial-spring-model-view-controller-tips/)
 
 #### `DB Objects for jdbcTemplate`  
 create database mydb;  
