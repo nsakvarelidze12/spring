@@ -53,4 +53,3 @@ public class ConfigMVC implements WebApplicationInitializer {
     }
 
 }
-
