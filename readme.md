@@ -23,12 +23,6 @@ create table employee
 ### `to do`  
 jpa collection mapping  
 jpa query lang  
-Spring Data JPA  
-remoting  
-WS  
-MVC  
-spring security  
-spring boot  
 
 ### `markdown examples`
 **bold**  
