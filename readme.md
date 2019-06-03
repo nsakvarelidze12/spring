@@ -3,6 +3,7 @@
 [JPA container managed](https://www.baeldung.com/the-persistence-layer-with-spring-and-jpa)  
 [JPA container managed](http://www.makble.com/jpa-configuration-in-spring-with-annotation-example)  
 [JPA Transactions](https://en.wikibooks.org/wiki/Java_Persistence/Transactions)  
+[JPA - container vs application managed](https://www.byteslounge.com/tutorials/container-vs-application-managed-entitymanager)  
 [SPEL](https://dzone.com/articles/learn-spring-expression-language-with-examples)  
 [MVC](https://auth0.com/blog/spring-5-embedded-tomcat-8-gradle-tutorial/)  
 [MVC git example](https://github.com/auth0-blog/embedded-spring-5.git)  
