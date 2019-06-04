@@ -5,6 +5,8 @@ import javax.persistence.PersistenceContext;
 
 public class DaoAbstract<T> {
 
+    // excerpt concerning EE (but this principle applies to spring as well)
+    //
     // Container Managed Persistence Context:
     // container is responsible for Persistence Context injection and disposal
     // Container Managed Persistence Context may only be used with JTA
@@ -15,7 +17,6 @@ public class DaoAbstract<T> {
     // application managed Persistence Context may be used with both JTA and Resource Local
     // in Resource Local, the application must manage the transaction completely by itself
 
-    // example of Container Managed Persistence Context
     @PersistenceContext
     private EntityManager em;
 
